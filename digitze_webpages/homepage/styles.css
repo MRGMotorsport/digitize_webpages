@@ -10,7 +10,7 @@
   --radius: 0.2rem; /* Small border radius for rounded corners */
   --content-margin: 25%; /* Default margin for content centering */
   --header-size: 40px;
-  --content-text-size: 30px;
+  --content-text-size: 24px;
   --list-font-size: 24px;
 }
 
@@ -175,7 +175,7 @@ body {
 /* Box at the bottom of the page to hide any white areas */
 .black-box-bottom {
   background: black;
-  width: 100vw;
+  width: 100%;
   height: auto;
   margin-top: -30rem;
   display: flex;
@@ -189,6 +189,8 @@ body {
 /* ============================================================
    Yellow Box Content Container
 ============================================================= */
+
+
 /* Flex container for content inside the yellow box */
 .yellow-box-content-container {
   padding: 1.4rem 0;
@@ -213,6 +215,19 @@ body {
       margin-left: var(--content-margin);
       padding: 10rem 0; /* Increased padding for spacing */
   }
+}
+
+.why-digitize-list {
+
+  h2 {
+    font-size: var(--header-size);
+  }
+
+  li {
+    font-size: var(--content-text-size);
+    margin-bottom: 1rem;
+  }
+
 }
 
 /* ============================================================
@@ -257,46 +272,61 @@ body {
   margin-left: var(--content-margin);
   margin-right: var(--content-margin);
   margin-bottom: 3rem;
+  font-size: var(--content-text-size);
 }
 
 /* ============================================================
    Capabilities Section (Two-Column Layout)
 ============================================================= */
-/* Main container for the capabilities section */
+/* Main container for the capabilities section 
+
+This works for*/
 .capabilities-flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  transform: rotate(-6deg) skew(-6deg);
   color: white;
+  transform: rotate(-6deg) skew(-6deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-left: var(--content-margin);
   margin-right: var(--content-margin);
-  margin-top: 4rem;
-  margin-bottom: 0rem;
+  margin-bottom: 10rem;
 }
 
-.cell-row {
-  display: flex; /* Ensure left and right cells stay in one row */
-  width: 100%;
-  align-items: center;
-  gap: 2rem;
-}
-
-.cell-left {
-  flex: 0 0 25%; /* Left column takes 35% of the row */
+.capabilities-item-1, .capabilities-item-2, .capabilities-item-3 {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  text-align: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+
+  p {
+    font-size: var(--content-text-size);
+  }
 }
 
-.cell-right {
-  flex: 0 0 75%; /* Right column takes 65% of the row */
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: left;
+.svg-bulletpoints {
+  flex: 1; /* Allows it to grow and shrink */
+  max-width: 200px; /* Prevents it from growing too big */
+  min-width: 100px; /* Prevents it from shrinking too much */
+
+  svg {
+    width: 100%;  /* Makes the SVG responsive */
+    height: auto; /* Maintains aspect ratio */
+  }
+
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1000; /* Length of the path for animation */
+  stroke-dashoffset: 1000; /* Start with the path hidden */
+  transition: stroke-dashoffset 3s ease-in-out;
 }
+
+.porsche-with-bikes-svg path.visible {
+  stroke-dashoffset: 0; /* Reveal the path when triggered */
+}
+
 
 
 /* ============================================================
@@ -318,6 +348,24 @@ body {
 
 }
 
+
+.porsche-with-bikes-svg {
+  display: flex;
+  justify-content: center;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  padding-top: 2rem;
+  stroke-dasharray: 1000; /* Length of the path for animation */
+  stroke-dashoffset: 1000; /* Start with the path hidden */
+  transition: stroke-dashoffset 10s ease-in-out;
+}
+
+.porsche-with-bikes-svg path.visible {
+  stroke-dashoffset: 0; /* Reveal the path when triggered */
+}
+
+
+
 .how-to-get-started {
   h5 {
     font-size: var(--header-size);
@@ -326,6 +374,7 @@ body {
   p {
     font-size: var(--content-text-size);
   }
+  padding-top: 8rem;
 }
 
 .header-left-justify {
@@ -333,7 +382,77 @@ body {
 }
 
 
+/* All of this table stuff was copy past from GPT wish some
+good good bodging from me, sorry not sorry lol */
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: 90%;
+  margin-right: var(--content-margin);
+  margin-left: var(--content-margin);
+  padding: 2rem;
+  transform: rotate(-6deg) skew(-6deg);
+  background-color: #131313; /* Slightly lighter black for the table container */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
 
+/* Table Styling */
+.table-of-membership {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-of-membership th, .table-of-membership td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid #333; /* Soft borders for minimalist style */
+}
+
+.table-of-membership th {
+  background-color: #333; /* Dark gray background for headers */
+  color: #FFF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.table-of-membership td {
+  background-color: #222; /* Light grayish-black for table rows */
+  color: white;
+}
+
+
+/* Responsive table for smaller screens */
+@media (max-width: 768px) {
+  .table-of-membership th, .table-of-membership td {
+    padding: 1rem;
+  }
+}
+
+
+.tick-icon svg rect{
+  fill: var(--clr-primary);
+}
+
+.table-row {
+  display: flex;
+
+}
+
+
+
+.final-para {
+  color: white;
+  transform: rotate(-6deg) skew(-6deg);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 14rem;
+  padding-bottom: 6rem;
+  margin-right: var(--content-margin);
+  margin-left: var(--content-margin);
+  font-size: var(--header-size);
+}
 
 
 /* ============================================================
