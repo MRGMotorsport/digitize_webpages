@@ -1,0 +1,360 @@
+/* ============================================================
+   Color Variables
+============================================================= */
+/* Define reusable color and spacing variables for easy customization. */
+:root {
+  --clr-primary: rgb(218, 255, 6); /* Bright yellow for primary elements */
+  --clr-primary-hover: rgb(91, 107, 0); /* Darker yellow-green for hover state */
+  --clr-background: white; /* Default background color */
+  --clr-gray200: #cfd8dc; /* Light gray used for shadows and borders */
+  --radius: 0.2rem; /* Small border radius for rounded corners */
+  --content-margin: 25%; /* Default margin for content centering */
+  --header-size: 40px;
+  --content-text-size: 30px;
+  --list-font-size: 24px;
+}
+
+/* Media query to reduce margins on tablets and smaller screens */
+@media (max-width: 768px) {
+  :root {
+    --content-margin: 15%;
+  }
+}
+
+/* Media query to further reduce margins on very small screens */
+@media (max-width: 480px) {
+  :root {
+    --content-margin: 10%;
+  }
+}
+
+/* ============================================================
+   General Styles
+============================================================= */
+/* Universal selector to ensure consistent box sizing */
+*,
+*:before,
+*:after {
+  box-sizing: border-box; /* Ensures padding doesn't increase element size */
+}
+
+/* Basic body styles for font and background */
+body {
+  font-family: 'Chivo', sans-serif; /* Primary font */
+  background: var(--clr-background);
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   Navigation Styles
+============================================================= */
+/* Navigation container with shadow and padding */
+.nav-list {
+  background: rgb(0, 0, 0); /* Black background for nav bar */
+  box-shadow: 0px 0px 10px var(--clr-gray200); /* Subtle shadow effect */
+  padding: 1rem 0;
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: flex-end; /* Align nav items to the right */
+  align-items: center;
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+/* Individual navigation items */
+.nav-item {
+  list-style: none; /* Remove bullet points */
+  margin-right: 2rem;
+}
+
+/* Navigation links with hover effect */
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  transition: all 200ms ease-in; /* Smooth color transition */
+}
+
+/* Change link color on hover */
+.nav-item a:hover {
+  color: var(--clr-primary);
+}
+
+/* Logo positioning */
+.nav-logo {
+  margin-right: auto; /* Push logo to the left */
+  margin-left: 2rem;
+}
+
+/* Change logo color on hover (targets SVG paths and rectangles) */
+.nav-logo:hover svg path {
+  fill: var(--clr-primary);
+}
+
+.nav-logo:hover svg rect {
+  fill: var(--clr-primary);
+}
+
+/* ============================================================
+   Button Styles
+============================================================= */
+/* Primary button styling */
+.btn-primary {
+  font-family: Montserrat, sans-serif;
+  font-size: 1rem;
+  background: var(--clr-primary);
+  border: none;
+  outline: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 200ms ease-in; /* Smooth hover transition */
+}
+
+/* Button hover state */
+.btn-primary:hover {
+  background: var(--clr-primary-hover);
+  color: white;
+}
+
+/* ============================================================
+   Logo & Digitize Text
+============================================================= */
+/* Center logo container with responsive margins */
+.logo-container {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: var(--content-margin);
+  margin-right: var(--content-margin);
+}
+
+/* Introduction text with bottom margin for spacing */
+.digitize-intro {
+  margin-left: var(--content-margin);
+  margin-right: var(--content-margin);
+  margin-bottom: 9rem;
+
+  p1 {
+    font-size: 25px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+}
+
+/* ============================================================
+   Background Shapes (Slanted Boxes)
+============================================================= */
+/* Yellow slanted background box */
+.yellow-box {
+  background-color: var(--clr-primary);
+  width: 100%;
+  height: auto;
+  transform-origin: center;
+  transform: rotate(6deg) skew(6deg) scale(1.007); /* copes with the parallelagram losing width */
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Black slanted background box */
+.black-box {
+  background-color: black;
+  width: 100%;
+  height: auto;
+  transform-origin: center;
+  transform: rotate(6deg) skew(6deg) scale(1.007);
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+
+}
+
+/* Box at the bottom of the page to hide any white areas */
+.black-box-bottom {
+  background: black;
+  width: 100vw;
+  height: auto;
+  margin-top: -30rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 40rem;
+  padding-bottom: 4rem;
+
+}
+
+
+/* ============================================================
+   Yellow Box Content Container
+============================================================= */
+/* Flex container for content inside the yellow box */
+.yellow-box-content-container {
+  padding: 1.4rem 0;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  transform: rotate(-6deg) skew(-6deg); /* Reverse the slant for content alignment */
+  gap: 5rem; /* Large gap between items */
+  margin-left: 10%;
+  margin-right: 10%;
+  h2 {
+    font-size: 40px;
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1000px) {
+  .yellow-box-content-container {
+      flex-direction: column; /* Stack items vertically */
+      align-items: stretch;
+      gap: 2rem;
+      margin-left: var(--content-margin);
+      padding: 10rem 0; /* Increased padding for spacing */
+  }
+}
+
+/* ============================================================
+   SVG Animation
+============================================================= */
+/* Styling for SVG paths to create drawing animation */
+.svg-art-one path {
+  fill: none;
+  stroke: black;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1000; /* Length of the path for animation */
+  stroke-dashoffset: 1000; /* Start with the path hidden */
+  animation: draw 3s ease-in-out forwards;
+}
+
+/* Animation keyframes for drawing effect */
+@keyframes draw {
+  0% {
+      stroke-dashoffset: 1000; /* Fully hidden at start */
+  }
+  100% {
+      stroke-dashoffset: 0; /* Fully drawn at end */
+  }
+}
+
+/* ============================================================
+   Black Box Content Container
+============================================================= */
+/* Container for content within the black box */
+.black-box-content-container {
+  color: white;
+  padding: 1rem 0;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  gap: 0;
+  transform: rotate(-6deg) skew(-6deg); /* Reverse slant for content */
+  margin-left: var(--content-margin);
+  margin-right: var(--content-margin);
+  margin-bottom: 3rem;
+}
+
+/* ============================================================
+   Capabilities Section (Two-Column Layout)
+============================================================= */
+/* Main container for the capabilities section */
+.capabilities-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  transform: rotate(-6deg) skew(-6deg);
+  color: white;
+  margin-left: var(--content-margin);
+  margin-right: var(--content-margin);
+  margin-top: 4rem;
+  margin-bottom: 0rem;
+}
+
+.cell-row {
+  display: flex; /* Ensure left and right cells stay in one row */
+  width: 100%;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cell-left {
+  flex: 0 0 25%; /* Left column takes 35% of the row */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cell-right {
+  flex: 0 0 75%; /* Right column takes 65% of the row */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+
+/* ============================================================
+   WHAT IS DIGITIZE AND THE TABLE OF MEMBERSHIP
+============================================================= */
+
+.about-digitize {
+  h4 {
+    font-size: var(--header-size);
+  }
+
+  p {
+    font-size: var(--content-text-size);
+  }
+
+  li {
+    font-size: var(--list-font-size);
+  }
+
+}
+
+.how-to-get-started {
+  h5 {
+    font-size: var(--header-size);
+  }
+
+  p {
+    font-size: var(--content-text-size);
+  }
+}
+
+.header-left-justify {
+  text-align: right;
+}
+
+
+
+
+
+/* ============================================================
+   Second Black Box Content Container
+============================================================= */
+/* Additional content section in the black box */
+.black-box-second-content-container {
+  color: white;
+  transform: rotate(-6deg) skew(-6deg);
+  margin-left: var(--content-margin);
+  margin-right: var(--content-margin);
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 1;
+  
+  li {
+    margin-bottom: 1rem; /* Space between items */
+  }
+  
+
+}
+
+
