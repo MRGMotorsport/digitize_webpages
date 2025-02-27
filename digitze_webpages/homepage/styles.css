@@ -46,6 +46,8 @@ body {
   padding: 0;
 }
 
+
+
 /* ============================================================
    Navigation Styles
 ============================================================= */
@@ -123,7 +125,7 @@ body {
 ============================================================= */
 /* Center logo container with responsive margins */
 .logo-container {
-  padding: 3rem 0;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,18 +134,46 @@ body {
 }
 
 /* Introduction text with bottom margin for spacing */
-.digitize-intro {
-  margin-left: var(--content-margin);
-  margin-right: var(--content-margin);
-  margin-bottom: 9rem;
+.digitize-text-wrapper {
 
   p1 {
-    font-size: 25px;
+    font-size: 35px;
   }
   h1 {
-    font-size: 40px;
+    font-size: var(--header-size);
   }
+
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+
 }
+
+.intro-container {
+  display: flex;
+
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+  gap: 1rem;
+
+
+
+}
+
+.bmw-svg {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1000; /* Length of the path for animation */
+  stroke-dashoffset: 1000; /* Start with the path hidden */
+  animation: draw 3s ease-in-out forwards;
+}
+
+
+
 
 /* ============================================================
    Background Shapes (Slanted Boxes)
